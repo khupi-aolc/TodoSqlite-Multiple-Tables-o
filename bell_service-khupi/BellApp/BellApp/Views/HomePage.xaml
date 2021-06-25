@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BellApp.Views.HomePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#ffffff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Image Source="bell_background" Opacity="0.2" Aspect="AspectFill" />
+            <Grid Margin="40, 40, 0, 0" HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+
+                <Image Grid.Row="0" Grid.ColumnSpan="3" Source="bell_logo" HorizontalOptions="Center" Scale="0.9" />
+
+
+
+                <!-- Header for logo -->
+
+                <!-- Body buttons -->
+                <ImageButton Grid.Row="1" Grid.Column="0" Source="bell_risk" BackgroundColor="Transparent"
+                             Command="{Binding RiskAssessmentCommand}" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Risk Assessment"
+                    FontSize="Medium"
+                    HeightRequest="40"
+                    Margin="0, 160, 0, 0"
+                    TextColor="Black" 
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    VerticalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                  />
+
+        
+                  
+               
+
+                <ImageButton Grid.Row="2" Grid.Column="0" Source="Bell_Service" BackgroundColor="Transparent"
+                             Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                
+                <Label Grid.Row="2" Grid.Column="0" Text="Service"
+                       FontSize="Medium" Margin="0, 160, 0, 0" TextColor="Black"  
+                           HorizontalOptions="Center" FontAttributes="Bold"/>
+
+                <ImageButton Grid.Row="3" Grid.Column="0" Source="bell_MCA" BackgroundColor="Transparent"
+                             Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                <Label Grid.Row="3" Grid.Column="0" Text="MCA" FontSize="Medium" Margin="0, 160, 0, 0" TextColor="Black"  
+                           HorizontalOptions="Center" FontAttributes="Bold" />
+
+                <ImageButton Grid.Row="3" Grid.Column="1" Source="bell_parts" BackgroundColor="Transparent"
+                             Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                <Label Grid.Row="3" Grid.Column="1" Text="Parts"  FontSize="Medium" Margin="0, 160, 0, 0" TextColor="Black"  
+                           HorizontalOptions="Center" FontAttributes="Bold" />
+
+                
+                <ImageButton Grid.Row="2" Grid.Column="1" Source="bell_fir" BackgroundColor="Transparent"
+                             Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                <Label Grid.Row="2" Grid.Column="1" Text="FIR"  FontSize="Medium" Margin="0, 160, 0, 0" TextColor="Black"  
+                           HorizontalOptions="Center" FontAttributes="Bold" />
+
+
+                <Grid Grid.Row="9" Grid.Column="1" Margin="10" RowSpacing="0">
+                    <ImageButton Source="SlideDots" BackgroundColor="Transparent"
+                             Margin="0, 0, 0, 0"  HorizontalOptions="Center" Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="20"  />
+                </Grid>
+                
+
+
+
+            </Grid>
+            
+            <!-- footer for buttons -->
+          
+            
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

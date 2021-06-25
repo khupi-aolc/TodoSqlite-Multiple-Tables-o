@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+              xmlns:tt="clr-namespace:TouchTracking" xmlns:riskassessment="clr-namespace:BellApp.ViewModels.riskAssessment" x:DataType="riskassessment:SignatureRiskAssesment"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BellApp.Views.riskAssessment.PopSignature"  BackgroundColor="#fff">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#ffffff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout  Grid.Row="0" BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="bell_logo.png" VerticalOptions="Center" HeightRequest="40" />
+
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+       
+
+        <StackLayout Margin="0,-20,0,0" Grid.Row="1" BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                        <Label x:Name="lblNamHeading" Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        <!--Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/-->
+                    </ContentView>
+                    <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                        <Label Margin="0, 0" Grid.Row="2" TextColor="Black" x:Name="lblHeading" FontSize="Medium" Text="User Signature" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+        
+        
+         <ContentView  BackgroundColor="#fff" Grid.Row="2" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+            <Label Margin="20"  TextColor="#000000" FontSize="Medium" Text="Benficious needs to add ther signature below before submision"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+        </ContentView>
+
+        <Grid Grid.Row="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" />     
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+ 
+
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"
+              
+              BackgroundColor="White">
+
+            <skia:SKCanvasView Margin="10" BackgroundColor="#f1f1f1" x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface" />
+            <Grid.Effects>
+                <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction" />
+            </Grid.Effects>
+        </Grid>
+
+
+        <Picker IsVisible="false" x:Name="colorPicker"
+                Title="Color"
+                Grid.Row="1"
+                Grid.Column="0">
+            <Picker.Items>
+                <x:String>Black</x:String>
+                <x:String>Red</x:String>
+                <x:String>Green</x:String>
+                <x:String >Blue</x:String>
+                <x:String>Aqua</x:String>
+                <x:String>Fuchsia</x:String>
+                <x:String>Yellow</x:String>
+                <x:String>Gray</x:String>
+                <x:String>White</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                0
+            </Picker.SelectedIndex>
+        </Picker>
+
+        <Picker IsVisible="false" x:Name="widthPicker"
+                Title="Width"
+                Grid.Row="1"
+                Grid.Column="1">
+            <Picker.Items>
+                <x:String>Thin</x:String>
+                <x:String>Thinish</x:String>
+                <x:String>Medium</x:String>
+                <x:String>Thickish</x:String>
+                <x:String>Thick</x:String>
+            </Picker.Items>
+
+            <Picker.SelectedIndex>
+                1
+            </Picker.SelectedIndex>
+        </Picker>
+
+        <ContentView  Grid.ColumnSpan="4"  Grid.Column="0"  Grid.Row="1" Padding="0,0,0,20"  HorizontalOptions="FillAndExpand">
+            <Button  MinimumWidthRequest="120"  Clicked="OnClearButtonClicked" Text="Clear" FontSize="17" HeightRequest="40" BorderRadius="2"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+        </ContentView>
+
+            
+            <ContentView   Grid.ColumnSpan="2"  Grid.Column="0"  Grid.Row="2" Padding="0,0,0,20" VerticalOptions="End"  HorizontalOptions="FillAndExpand">
+                <Button   MinimumWidthRequest="120"  Command="{Binding RiskAssPageCommand}" Text="Previous" FontSize="17" HeightRequest="40" BorderRadius="2"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+              </ContentView>
+
+            <ContentView  Grid.ColumnSpan="2" Grid.Column="2"  Grid.Row="2" Padding="0,0,0,20"  VerticalOptions="End"  HorizontalOptions="FillAndExpand">
+                <Button  MinimumWidthRequest="120"  Clicked="OnClearButtonClicked" Text="Next" FontSize="17" HeightRequest="40" BorderRadius="2"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+             </ContentView>
+                     
+
+      </Grid>
+        
+       
+    </Grid>
+</ContentPage>

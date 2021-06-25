@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:BellApp.Controls;assembly=BellApp"
+             xmlns:behavior="clr-namespace:BellApp.Helpers.Behaviors"
+             xmlns:converter="clr-namespace:BellApp.Helpers.Converters"
+             x:Class="BellApp.Views.authentication.RegistrationPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter"/>
+            <Color x:Key="Accent">#ffffff</Color>
+            <Color x:Key="ErrorTextStyle">#FF0000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="bell_logo.png" VerticalOptions="Center" HeightRequest="40" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <Grid Margin="0,-20, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                
+                <StackLayout Grid.Row="2">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Company: "/>
+                    <Controls:StandardEntry Text="{Binding Company.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                           x:Name="company">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Company.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding Company.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Company.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                         Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+
+
+                <StackLayout Grid.Row="3">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Company Number: "/>
+                    <Controls:StandardEntry Text="{Binding CompanyNo.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                           x:Name="companyNo">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding CompanyNo.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding CompanyNo.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding CompanyNo.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                         Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Job Position: "/>
+                    <Controls:StandardEntry Text="{Binding JobPosition.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        x:Name="jobPosition">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding JobPosition.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding JobPosition.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding JobPosition.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                         Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Name: "/>
+                    <Controls:StandardEntry Text="{Binding Name.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                           x:Name="name">
+                        <Controls:StandardEntry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Name.IsValid}"/>
+                        </Controls:StandardEntry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding Name.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Name.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                         Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Email: "/>
+                    <Controls:StandardEntry Text="{Binding Email.Value}"
+                         Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                           x:Name="email">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Email.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label 
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding Email.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Email.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="7">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Password: "/>
+                    <Controls:StandardEntry Text="{Binding Password.Item1.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        x:Name="Password"
+                        IsPassword="true">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Password.Item1.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label 
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding Password.Item1.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Password.Item1.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}
+                        "/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="8">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Confirm Password: "/>
+                    <Controls:StandardEntry Text="{Binding Password.Item2.Value}"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        IsPassword="true">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Password.Item2.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label
+                        Margin="10, 5"
+                        TextColor="Red"
+                        FontSize="10"
+                        Text="{Binding Password.Item2.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Password.Item2.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="9">
+                    <Button Grid.Row="9" Text="Sign up" FontSize="17" HeightRequest="50" BorderRadius="6" FontAttributes="Bold" Command="{Binding CreateNewUserCommand}" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+                    <!--Button Grid.Row="9" Text="Sign up" FontSize="17" HeightRequest="50" BorderRadius="6" FontAttributes="Bold" Command="{Binding SihCommand}" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" /-->
+                </StackLayout>
+
+                <StackLayout Grid.Row="10" Margin="10">
+                    <Label Text="Already have an account?" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Label Text="Log in" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding loginBackCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:Controls="clr-namespace:BellApp.Controls;assembly=BellApp"
+             xmlns:behavior="clr-namespace:BellApp.Helpers.Behaviors"
+             xmlns:converter="clr-namespace:BellApp.Helpers.Converters"
+             Title="LoginPage" 
+
+             mc:Ignorable="d"
+             x:Class="BellApp.Views.LoginPage"
+             Shell.NavBarIsVisible="False"  
+             >
+
+    <!-- xmlns:prism="http://prismlibrary.com" -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter"/>
+            <Color x:Key="ErrorTextStyle">#FF0000</Color>
+            <Color x:Key="Accent">#ffffff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="bell_logo.png" VerticalOptions="Center" HeightRequest="40" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+
+        <ScrollView Grid.Row="1">
+            <Grid Margin="0,20, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Header for logo -->
+
+
+                <!-- Page label -->
+
+                <StackLayout Grid.Row="2">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Username: "/>
+
+                    <Controls:StandardEntry
+                        Text="{Binding Username.Item1.Value}"
+                        Grid.Row="2"
+                        Padding="13"
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        TextColor="Black"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        PlaceholderColor="Gray">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Username.Item1.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label 
+                        Margin="10, 5"
+                        TextColor="Red"
+                        Text="{Binding Username.Item1.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Username.Item1.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Password: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding Password.Item1.Value}"
+                        Grid.Row="2"
+                        Padding="13"
+                        Margin="10, 5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        IsPassword="True">
+                        <Entry.Behaviors>
+                            <behavior:EntryLineValidationBehaviour IsValid="{Binding Password.IsValid}"/>
+                        </Entry.Behaviors>
+                    </Controls:StandardEntry>
+                    <Label 
+                        Margin="10, 5"
+                        TextColor="Red"
+                        Text="{Binding Password.Item1.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Password.Item1.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}
+                        "/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" Orientation="Horizontal" Margin="10">
+                    <CheckBox IsChecked="{Binding IsChecked}" Color="Black" Scale="1.5"  />
+                    <Label Text="Remember Me" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RememberMeCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Forgot Password?" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="Black" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+
+                <Button Grid.Row="5" Text="LOG IN" FontSize="17" HeightRequest="50" BorderRadius="6" FontAttributes="Bold" Command="{Binding LoginCommand}" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+
+                <StackLayout Grid.Row="6" Margin="10">
+                    <Label Text="Not a member yet?" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Label Text="Create an account" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CreateNewAccountCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

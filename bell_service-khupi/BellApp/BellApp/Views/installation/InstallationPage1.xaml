@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BellApp.Views.Installation.InstallationPage1"
+             NavigationPage.HasNavigationBar="True">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Image Source="bell_background" Opacity="0.2" Aspect="AspectFill" />
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Header for logo -->
+                <Image Grid.Row="0" Source="bell_logo" HorizontalOptions="Center" Scale=".55" />
+
+                <!-- Page label -->
+                <Label Grid.Row="1" Text="INSTALLATION CERTIFICATE" VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" TextColor="White" 
+                       BackgroundColor="#FCB942" FontSize="Large" FontAttributes="Bold"
+                       HeightRequest="80" />
+
+                <!-- Content box -->
+                <ScrollView Grid.Row="2" >
+                    <StackLayout>
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Margin="10, 10, 10, 0">
+                            <Entry Placeholder="Pin/Vin number" PlaceholderColor="Black" HorizontalOptions="FillAndExpand"
+                                   TextColor="Black" BackgroundColor="White" Text="{Binding PinVin}" />
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+
+                <!-- footer for buttons -->
+                <Grid Grid.Row="3" Margin="10" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#FCB942" Text="Next Page" FontSize="Medium" FontAttributes="Bold" Command="{Binding BackCommand}"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,1805 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             x:Class="BellApp.Views.riskAssessment.RiskAssPage1"
+             mc:Ignorable="d"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Controls="clr-namespace:BellApp.Controls;assembly=BellApp" 
+             xmlns:riskassessment="clr-namespace:BellApp.ViewModels.riskAssessment" 
+             x:DataType="riskassessment:RiskAssViewModel"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#ffffff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout  Grid.Row="0" BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="bell_logo.png" VerticalOptions="Center" HeightRequest="40" />
+                    
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="0,-20,0,0" Grid.Row="1" BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                        <Label x:Name="lblNamHeading" Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                       
+                        <!--Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/-->
+                    </ContentView>
+                    <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                        <Label Margin="0, 0" Grid.Row="2" TextColor="Black" x:Name="lblHeading" FontSize="Medium" Text="USER CREDENTIALS" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+
+
+
+        <StackLayout    Grid.Row="2"  BackgroundColor="#fff"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <xct:Expander Tapped="OnExpanderTapped">
+                <xct:Expander.Header>
+
+                    <Image Margin="0,-10,0,0" Source="collapse" WidthRequest="30" HeightRequest="30" Rotation="180">
+                        <Image.Triggers>
+                            <DataTrigger TargetType="Image"
+                                        
+                                Binding="{Binding Source={RelativeSource  AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                 Value="True">
+                                <Setter Property="HeightRequest" Value="30" />
+                                <Setter Property="Source" Value="expand"/>
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                </xct:Expander.Header>
+                
+                
+                <StackLayout Margin="0,-10,0,0"  BackgroundColor="#fff"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                       
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="25" />
+                            </Grid.ColumnDefinitions>
+
+                            <ContentView   Padding="0,0,-30,-30"  BackgroundColor="#fff" Grid.Column="0"   >
+                                <ImageButton Source="progress1" BackgroundColor="Transparent"
+                                 Aspect="AspectFit"  HeightRequest="150" Margin="10" />
+                            </ContentView>
+
+                            <ContentView  Grid.Column="1"  Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton x:Name="pgbar1"   Source="progress2" BackgroundColor="Transparent"
+                                 Aspect="AspectFit" Opacity=".3" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="2"   Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton  x:Name="pgbar2" Source="progress2" BackgroundColor="Transparent"
+                                 Aspect="AspectFit" Opacity="0.4" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="3"   Padding="0,0,-30,-30"  VerticalOptions="FillAndExpand">
+                                <ImageButton  x:Name="pgbar3" Source="progress2" BackgroundColor="Transparent"
+                                 Opacity="0.4" Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="4"  Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton x:Name="pgbar4"  Source="progress2" Opacity="0.4" BackgroundColor="Transparent"
+                                Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+
+                            <ContentView  Grid.Column="5"   Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton x:Name="pgbar5" Source="progress2" Opacity="0.4" BackgroundColor="Transparent"
+                                 Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="6"  Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton  x:Name="pgbar6" Source="progress2" Opacity="0.4" BackgroundColor="Transparent"
+                                 Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="6"   Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton  x:Name="pgbar7" Source="progress2" Opacity="0.1" BackgroundColor="Transparent"
+                                 Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                            <ContentView  Grid.Column="7"  Padding="0,0,-30,-30" VerticalOptions="FillAndExpand">
+                                <ImageButton x:Name="pgbar8"  Source="progress3" Opacity="0.4" BackgroundColor="Transparent"
+                                  Aspect="AspectFit" HeightRequest="150" Margin="10" />
+                            </ContentView>
+                 
+
+                    </Grid>
+                    </Grid>
+                    
+                    <RelativeLayout Margin="0,-110,0,0" HorizontalOptions="Center" VerticalOptions="Start">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ContentView  Grid.Column="0" Grid.Row="0" Padding="0,30,0,20"  HorizontalOptions="FillAndExpand">
+                                <Button Grid.Row="9" x:Name="prev" Clicked="Previous" MinimumWidthRequest="120"   Text="Previous" FontSize="17" HeightRequest="40" BorderRadius="2"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+                            </ContentView>
+
+                            <ContentView  Grid.Column="1" Grid.Row="0" Padding="0,30,0,20" HorizontalOptions="FillAndExpand">
+                                <Button Grid.Row="9"  Clicked="Next" Text="Next" MinimumWidthRequest="120" FontSize="17" HeightRequest="40" BorderRadius="2" FontAttributes="Bold"  Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+                            </ContentView>
+
+
+                        </Grid>
+                    </RelativeLayout>
+                </StackLayout>
+               
+
+
+
+            </xct:Expander>
+
+           
+
+
+
+
+        
+        </StackLayout>
+
+
+
+        <ScrollView x:Name="scrollView" Margin="0,-10,0,0"  Scrolled="OnScrollViewScrolled" Grid.Row="3">
+         
+            <!--//////////////////  ////////////////////-->
+            <Grid Margin="0,-20, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Grid.Row="2">
+                    <Label x:Name="userName" Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Name: "/>
+                    <Controls:StandardEntry
+                        Grid.Row="2"
+                        Padding="13"
+                       
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        TextColor="Black"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        
+                        PlaceholderColor="Gray" />
+                </StackLayout>
+
+
+
+                <StackLayout Grid.Row="3">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Team: "/>
+                    <Controls:StandardEntry
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10" 
+                        />
+
+
+                </StackLayout>
+
+
+             
+
+                <StackLayout Grid.Row="6">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Date: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding Created_at}"
+                        x:Name="created_at"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                       />
+                </StackLayout>
+
+                <StackLayout Grid.Row="7">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Permit Number: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding PermitNo}"
+                        x:Name="permitNo"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        />
+                </StackLayout>
+
+                <StackLayout Grid.Row="8">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Company: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding Company}"
+                        x:Name="company"
+                        Grid.Row="2"
+                        Padding="13" 
+                       Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                         />
+                </StackLayout>
+
+                <StackLayout Grid.Row="9">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Location: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding Location}"
+                        x:Name="location"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                         />
+                </StackLayout>
+
+                <StackLayout Grid.Row="10">
+                    <Label Margin="10, 0" Grid.Row="2" TextColor="Black" FontSize="Large" Text="Team Member/s: "/>
+                    <Controls:StandardEntry
+                        Text="{Binding TeamMembers}"
+                        x:Name="teamMembers"
+                        Grid.Row="2"
+                        Padding="13" 
+                        Margin="10,-5,10,5"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                         />
+                </StackLayout>
+
+                <StackLayout Grid.Row="11"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                                <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                            </ContentView>
+                            <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                                <Label Margin="0, 0" x:Name="whatYouWearing" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="WHAT ARE YOU WEARING" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                            </ContentView>
+                        </Grid>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="12">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <!--Switch IsToggled="{Binding SafetyGoogles}" Grid.Row="0" x:Name="styleSwitch" />
+
+                        <Label  Grid.Row="1" Text="No">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source={x:Reference styleSwitch}, Path=IsToggled}"
+                                     Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label-->
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="1" Grid.Column="0" Source="Icons_ProtectiveClothing_01.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label WidthRequest="{Binding screenWidthSec}" x:Name="protectiveClothing"  Grid.Column="1" Grid.Row="1" TextColor="Black" FontSize="Medium"  Text="Protective Clothing" LineBreakMode="WordWrap" VerticalOptions="Center"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+
+                        <Switch IsToggled="{Binding ProtectiveClothing}" x:Name="ProtectiveClothing" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Margin="0, 0" Grid.Row="1" Grid.Column="2" />
+                        <Label  VerticalOptions="Center" Margin="0, 0,0,0"  Grid.Column="3" Grid.Row="1" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference P}, Path=IsToggled}"
+                                             Value="true">
+                                <Setter Property="Text"  Value="Yes" />
+
+                            </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="2" Grid.Column="0" Source="Icons_SafetyGloves_08.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="2" TextColor="Black" FontSize="Medium"  Text="Safety Gloves" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SafetyGloves}" x:Name="SafetyGloves" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="2" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap">
+                            <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference SafetyGloves}, Path=IsToggled}"
+                                             Value="true">
+                                <Setter Property="Text"  Value="Yes" />
+
+                            </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+                        <Image Margin="5,0,0,0"  Grid.Row="3" Grid.Column="0" Source="Icons_FaceShield_10.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label  VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="3" TextColor="Black" FontSize="Medium"  Text="Face Shield" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding FaceShield}" x:Name="FaceShield" HorizontalOptions="End" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Margin="0, 0" Grid.Row="3" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="3" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference FaceShield}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="4" Grid.Column="0" Source="Icons_SafetyHarnes_02.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center"  WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="4" TextColor="Black" FontSize="Medium"  Text="Safety Harness" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SefetyHarness}"  x:Name="SafetyHarnes" HorizontalOptions="End" Margin="0, 0" Grid.Row="4" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="4" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference SafetyHarnes}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="5" Grid.Column="0" Source="Icons_SafetyBoots_04.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="5" TextColor="Black" FontSize="Medium"  Text="Safety Boots" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SafetyBoots}"  x:Name="SafetyBoots" HorizontalOptions="End" Margin="0, 0" Grid.Row="5" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="5" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference SafetyBoots}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="6" Grid.Column="0" Source="Icons_RespiratoryProtection_05" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="6" TextColor="Black" FontSize="Medium"  Text="Use Safety Cage" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding UserSafetyCage}"  x:Name="RespiratoryProtection" HorizontalOptions="End" Margin="0, 0" Grid.Row="6" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000"  Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="6" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference RespiratoryProtection}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="7" Grid.Column="0" Source="Icons_SafetyGoogles_03.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"    Grid.Column="1" Grid.Row="7" TextColor="Black" FontSize="Medium"  Text="Safty Googles" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SafetyGoogles}"  x:Name="SafetyGoogles" HorizontalOptions="End" Margin="0, 0" Grid.Row="7" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="7" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference SafetyGoogles}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="8" Grid.Column="0" Source="Icons_HighVisibilityClothing_06.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center"  WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="8" TextColor="Black" FontSize="Medium"  Text="High Visibility Clothing" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HighVisibilityClothing}" x:Name="HighVisibilityClothing" HorizontalOptions="End" Margin="0, 0" Grid.Row="8" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="8" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference HighVisibilityClothing}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="9" Grid.Column="0" Source="Icons_UseScreening_07.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"  Margin="0, 10,0,0"  Grid.Column="1" Grid.Row="9" TextColor="Black" FontSize="Medium"  Text="Use Screening" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding UseScreening}" x:Name="UseScreening" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="9" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="9" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference UseScreening}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image   Margin="5,0,0,0"  Grid.Row="10" Grid.Column="0" Source="Icons_EarProtection_11.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center" WidthRequest="{Binding screenWidthSec}"   Grid.Column="1" Grid.Row="10" TextColor="Black" FontSize="Medium"  Text="Ear Protection" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding UseScreening}" x:Name="EarProtection" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="10" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="10" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference EarProtection}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="11" Grid.Column="0" Source="Icons_WeldingMusk_09.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center"  WidthRequest="{Binding screenWidthSec}"   Grid.Column="1" Grid.Row="11" TextColor="Black" FontSize="Medium"  Text="Welding Mask" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding WeldingMask}"  x:Name="WeldingMusk" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="11" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="11" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference WeldingMusk}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="12" Grid.Column="0" Source="Icons_HardHat_12.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label VerticalOptions="Center"  WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="12" TextColor="Black" FontSize="Medium"  Text="Hard Hat" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HardHat}"  x:Name="HardHat" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="12" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  VerticalOptions="Center" Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="12" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference HardHat}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+                        <Image  Margin="5,0,0,0"  Grid.Row="13" Grid.Column="0" Source="Icons_RespiratoryProtection_05.png" VerticalOptions="Center" HeightRequest="40" />
+                        <Label  WidthRequest="{Binding screenWidthSec}"  Grid.Column="1" Grid.Row="13" TextColor="Black" FontSize="Medium"  Text="Respiratory Protection" LineBreakMode="WordWrap" VerticalTextAlignment="Start" VerticalOptions="Center"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding RespiratoryProtection}"  x:Name="RespiratoryProtection1" HorizontalOptions="End" Margin="0, 0" ThumbColor="#cccccc" xct:IconTintColorEffect.TintColor="Black" OnColor="#000000" Grid.Row="13" Grid.Column="2" Toggled="OnToggled" />
+                        <Label  Margin="0, 10,0,0"  Grid.Column="3" Grid.Row="13" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference RespiratoryProtection1}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+
+                    </Grid>
+                   
+                    
+                   
+
+                </StackLayout>
+
+
+
+
+                <StackLayout Padding="0,0,0,0"  Grid.Row="13"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0" x:Name="stopThink" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="STOP. STEP BACK.THINK" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                    </Grid>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="14">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label  Margin="5,0,0,0"   WidthRequest="{Binding screenWidthFirst}" MinimumWidthRequest="11" Grid.Column="0" Grid.Row="1" TextColor="Black" FontSize="Medium"  Text="Do you know what has to be done?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding KnowWhatHasTobeDone}" x:Name="hasToBeDone" HorizontalOptions="Start"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="1" Grid.Column="1"   VerticalOptions="Start"/>
+                        <Label  Grid.Column="2"  Grid.Row="1" TextColor="Black" Text="No" LineBreakMode="WordWrap" FontSize="Medium"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference hasToBeDone}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="2"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                        Padding="7" 
+                        Margin="10, 0"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        BorderThickness="1" 
+                         HeightRequest="100"
+                        CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="3">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference hasToBeDone}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+
+                        </Controls:StandarEditor>
+
+                        <Label  Margin="5,0,0,0"   WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="3" TextColor="Black" FontSize="Medium"  Text="Do you know how to do it?" LineBreakMode="WordWrap" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding KnowHowToDoIt}" x:Name="HowToDoIt" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="3" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="3" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference HowToDoIt}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="4"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="4">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference HowToDoIt}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+
+                        </Controls:StandarEditor>
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="5" TextColor="Black" FontSize="Medium"  Text="Do you have safe access?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HaveSafeAccess}" x:Name="SafeAccess" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="5" Grid.Column="1"   VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="5" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference SafeAccess}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="6"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="6">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference SafeAccess}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="7" TextColor="Black" FontSize="Medium"  Text="Are all permits and lock outs in places?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding PermitsLockOutsPlaces}" x:Name="LockOuts" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="7" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="7" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                        <Label.Triggers>
+                             <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference LockOuts}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="8"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="8">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference LockOuts}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="9" TextColor="Black" FontSize="Medium"  Text="Will other people be affected?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding PeopleBeAffected}" x:Name="AffectedPeople" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="9" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="9" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference AffectedPeople}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="10"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="10">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference AffectedPeople}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+
+
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="11" TextColor="Black" FontSize="Medium"  Text="Is there equipment around you that can affect you?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding EquipAroundCanAffect}" x:Name="AffectedEqupment" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="11" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="11" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference AffectedEqupment}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="12"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="12">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference AffectedEqupment}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="13" TextColor="Black" FontSize="Medium"  Text="Correct tools for the job available and in good condition?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding CorrectToolsJobAvail}" x:Name="CorrectTools" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="13" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="13" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference CorrectTools}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        
+                        <Controls:StandarEditor
+                         Grid.Row="14"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="14">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference CorrectTools}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="15" TextColor="Black" FontSize="Medium"  Text="Are correct PPE for the job supplied and in good condition?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding CorrectPPEJob}" x:Name="CorrectPPE" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="15" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="15" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference CorrectPPE}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="16"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="16">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference CorrectPPE}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="17" TextColor="Black" FontSize="Medium"  Text="Are you exposed to high noise or hazardous substance?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding ExposedHighNoise}" x:Name="HighNoise" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="17" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="17" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference HighNoise}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="18"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="18">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference HighNoise}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="19" TextColor="Black" FontSize="Medium"  Text="Are the weather condition acceptable?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding WeatherCondition}" x:Name="WeatherCondition" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="19" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="19" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference WeatherCondition}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="20"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="20">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference WeatherCondition}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="21" TextColor="Black" FontSize="Medium"  Text="Are the existing controls/SOP available?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SOPAvailable}" x:Name="ExistingControls" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="21" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="21" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference ExistingControls}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="22"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="22">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference ExistingControls}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="23" TextColor="Black" FontSize="Medium"  Text="Are you making a change that could introduce new hazardzs" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding NewHazardzs}" x:Name="IntroduceHazardzs" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="23" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="23" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference IntroduceHazardzs}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="24"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="24">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference IntroduceHazardzs}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+                        
+
+
+                    </Grid>
+
+
+
+
+                </StackLayout>
+
+
+
+                <StackLayout Grid.Row="15"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="IDENTIFY ASSESS" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                    </Grid>
+
+                </StackLayout>
+                
+
+                <StackLayout Grid.Row="16">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+
+
+
+                      
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="5,0,0,0" x:Name ="SlipTrip"   WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="1" TextColor="Black" FontSize="Medium"  Text="Slip, Trip and Fall" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button  Command="{Binding TripAndFall}" Grid.Row="1" Text="Select if applicable" FontSize="14" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" TextTransform="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="2" TextColor="Black" FontSize="Medium"  Text="Hand And Finger Injury" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Grid.Row="2" Command="{Binding  FingerInjury}"  Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label  Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="3" TextColor="Black" FontSize="Medium"  Text="Eye Injury" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding EyeInjury}" Grid.Row="3" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label  Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="4" TextColor="Black" FontSize="Medium"  Text="Electric shock" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding Electricshock}" Grid.Row="4" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label  Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="5" TextColor="Black" FontSize="Medium"  Text="Extreme Temperature" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding ExtremeTemperature}" Grid.Row="5" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="6" TextColor="Black" FontSize="Medium"  Text="Moving Machinery" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding MovingMachinery}" Grid.Row="6" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1" BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label  Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="7" TextColor="Black" FontSize="Medium"  Text="Falling Objects" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding FallingObjects}" Grid.Row="7" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label  Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="8" TextColor="Black" FontSize="Medium"  Text="Hazardous Substance" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding HazardousSubstance}" Grid.Row="8" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="9" TextColor="Black" FontSize="Medium"  Text="Confined Space" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding ConfinedSpace}" Grid.Row="9" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="10" TextColor="Black" FontSize="Medium"  Text="Working at Heights" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding WorkingHeights}" Grid.Row="10" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthThird}" Grid.Column="0" Grid.Row="11" TextColor="Black" FontSize="Medium"  Text="Vehicle/Forklifts" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Button Command="{Binding VehicleForklifts}"  Grid.Row="11" Text="Select if applicable" FontSize="14" TextTransform="None" Margin="0,0,5,0" Grid.ColumnSpan="4" Grid.Column="1" HeightRequest="40" BorderRadius="1" FontAttributes="None" BorderWidth="1"  BorderColor="Black" TextColor="Black" BackgroundColor="#fff" />
+
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="17"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="ADD CUSTOM HAZARDS"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        
+
+                    </Grid>
+
+                </StackLayout>
+                
+
+                <StackLayout Grid.Row="18">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                         </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,20" HorizontalOptions="FillAndExpand">
+                            <Button Grid.Row="9"  Text="Add Hazards"  MinimumWidthRequest="200" FontSize="17" HeightRequest="40" BorderRadius="2" FontAttributes="Bold"  Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+                        </ContentView>
+
+                        <StackLayout Grid.Row="1">
+                            <Label  x:Name ="customHazards" Margin="10, 0" TextColor="Black" FontSize="Large" Text="Custom Hazard 1: "/>
+                            <Controls:StandardEntry
+                            Grid.Row="2"
+                            Padding="13" 
+                            Margin="10, 5"
+                            BackgroundColor="White"
+                            BorderColor="Gray"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                             />     
+                        </StackLayout>
+                        
+                    </Grid>
+                </StackLayout>
+
+
+                <StackLayout Padding="0,0,0,0"  Grid.Row="19"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0" x:Name="mitigate" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="MITIGATE / ELIMINATE / CONTROL" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                    </Grid>
+
+                </StackLayout>
+
+     
+                
+
+                <StackLayout Grid.Row="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                          
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Label  x:Name ="lblremovedHazards" Margin="5,0,0,0"   WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="3" TextColor="Black" FontSize="Medium"  Text="Have the harzard been removed?" LineBreakMode="WordWrap" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HazardRemoved}" x:Name="removedHazard" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="3" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="3" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference removedHazard}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Text="{Binding ReviewCommentary}"
+                         Grid.Row="4"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="4">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference removedHazard}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+
+                        </Controls:StandarEditor>
+                    <!--/////////////////////////-->
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="5" TextColor="Black" FontSize="Medium"  Text="Have the harzard been mitigated?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HazardMitigation}" x:Name="harzardMitigated" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="5" Grid.Column="1"   VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="5" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference harzardMitigated}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="6"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="6">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference harzardMitigated}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="7" TextColor="Black" FontSize="Medium"  Text="Have the harzard been isolated?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding HazardIsolated}" x:Name="harzardIsolated" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="7" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="7" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference harzardIsolated}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="8"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="8">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference harzardIsolated}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding harzardIsolated}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="9" TextColor="Black" FontSize="Medium"  Text="Have you communicated with your team members?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding CommunicatedTeamMembers}" x:Name="communicatedTeam" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="9" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="9" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference communicatedTeam}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="10"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="10">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference communicatedTeam}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+
+
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="11" TextColor="Black" FontSize="Medium"  Text="Do you know what to do incase of emergency?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding DoneIncaseEmergency}" x:Name="emergencyWhatTodo" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="11" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="11" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference emergencyWhatTodo}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="12"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="12">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference emergencyWhatTodo}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="13" TextColor="Black" FontSize="Medium"  Text="Is emergency equipment available?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding EmergencyEquipmentAvail}" x:Name="equipmentAvailable" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="13" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="13" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference equipmentAvailable}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Controls:StandarEditor
+                         Grid.Row="14"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="14">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference equipmentAvailable}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+                    </Grid>
+
+                </StackLayout>
+
+
+
+                <StackLayout Padding="0,0,0,0"  Grid.Row="21"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0" x:Name="proceed" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="PROCEED" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                    </Grid>
+
+                </StackLayout>
+
+
+
+
+                <StackLayout Grid.Row="22">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Label  Margin="5,0,0,0"  x:Name ="lbltaskContinue"   WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="3" TextColor="Black" FontSize="Medium"  Text="Can the task continue safely?" LineBreakMode="WordWrap" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding TaskContinueSafely}" x:Name="taskContinue" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="3" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="3" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference taskContinue}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="4"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="4">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference taskContinue}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="5" TextColor="Black" FontSize="Medium"  Text="Keep on asking your self what can go wrong?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding GoWrong}" x:Name="whatCanGoWrong" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="5" Grid.Column="1"   VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="5" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference whatCanGoWrong}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="6"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="6">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference whatCanGoWrong}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="7" TextColor="Black" FontSize="Medium"  Text="If any condition change start again from step 1?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding ConditionStartAgain}" x:Name="conditionChange" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="7" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="7" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference conditionChange}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="8"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="8">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference conditionChange}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="9" TextColor="Black" FontSize="Medium"  Text="Observe the work area. Is it still safe?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding ObserveWorkArea}" x:Name="ObserveWorkArea" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="9" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="9" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference ObserveWorkArea}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="10"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="10">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference ObserveWorkArea}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+
+
+
+
+                        <Label Margin="5,0,0,0" WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="11" TextColor="Black" FontSize="Medium"  Text="Did you feel save doing the job?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding SaveDoingJob}" x:Name="saveDoingJob" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="11" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="11" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference saveDoingJob}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Controls:StandarEditor
+                         Grid.Row="12"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="12">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference saveDoingJob}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+
+                        <Label Margin="5,0,0,0"  WidthRequest="{Binding screenWidthFirst}" Grid.Column="0" Grid.Row="13" TextColor="Black" FontSize="Medium"  Text="Were other around you working?" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding OtherAroundWorking}" x:Name="otherAroundYou" HorizontalOptions="End"  ThumbColor="#cccccc" OnColor="#000000" Grid.Row="13" Grid.Column="1"  VerticalOptions="Start"/>
+                        <Label  Grid.Column="2" Grid.Row="13" TextColor="Black" FontSize="Medium" Text="No" LineBreakMode="WordWrap"  HorizontalTextAlignment="Start" HorizontalOptions="Start">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference otherAroundYou}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="Text"  Value="Yes" />
+
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Controls:StandarEditor
+                         Grid.Row="14"
+                         WidthRequest="100"
+                         IsVisible="Hidden"
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="100"
+                         CornerRadius="10">
+                            <Controls:StandarEditor.Triggers  Grid.Row="14">
+                                <DataTrigger TargetType="Controls:StandarEditor"
+                                             Binding="{Binding Source={x:Reference otherAroundYou}, Path=IsToggled}"
+                                             Value="true">
+                                    <Setter Property="IsVisible"  Value="visible" />
+                                    <Setter Property="WidthRequest"  Value="{Binding screenWidth}" />
+                                    <Setter Property="Grid.ColumnSpan"  Value="4" />
+                                </DataTrigger>
+                            </Controls:StandarEditor.Triggers>
+                        </Controls:StandarEditor>
+                    </Grid>
+
+                </StackLayout>
+
+
+                <StackLayout Padding="0,0,0,0"  Grid.Row="23"  BackgroundColor="#FCB942"  VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentView  Grid.Row="0" Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0"  TextColor="#ffffff" FontSize="Large" FontAttributes="Bold" Text="RISK ASSESSMENT"  LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                        <ContentView Grid.Row="1"  Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                            <Label Margin="0, 0" x:Name="reviewCommentary" Grid.Row="2" TextColor="Black" FontSize="Medium" Text="REVIEW COMMENTARY" LineBreakMode="WordWrap"  HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </ContentView>
+                    </Grid>
+
+                </StackLayout>
+
+
+
+
+                <StackLayout Grid.Row="24">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Row="0" >
+                            <Label x:Name="lblRemovedHazard" WidthRequest="{Binding screenWidthFirst}"  TextColor="Black" FontSize="Medium"  Text="Have the harzard been removed?" LineBreakMode="WordWrap" HorizontalOptions="Center"/>
+
+                            <Controls:StandarEditor
+                         Grid.Row="1"
+                        
+                         Padding="7" 
+                         Margin="10, 0"
+                         BackgroundColor="White"
+                         BorderColor="Gray"
+                         BorderThickness="1" 
+                         HeightRequest="140"
+                         CornerRadius="10">
+                            </Controls:StandarEditor>
+
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <ContentView  Grid.Row="25" Padding="0,0,0,20"  HorizontalOptions="FillAndExpand">
+                    <Button Grid.Row="9"  MinimumWidthRequest="120" Command="{Binding SignaturesCommand}"  Text="Submit" FontSize="17" HeightRequest="40" BorderRadius="2"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" Margin="20, 10, 20, 0" TextColor="Black" BackgroundColor="#FCB942" />
+                </ContentView>
+                
+                <StackLayout IsVisible="hidden" Grid.Row="26" Margin="10">
+                    <Label Text="Log in" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BellApp.Views.MainPage"
+             Shell.NavBarIsVisible="False">
+
+ 
+
+   <ContentPage.Content>
+        <Grid class="mygrid">
+            <Image Source="bell_background" Opacity="0.2" Aspect="AspectFill" />
+            <Grid Margin="0, 40, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <!-- Logo Header -->
+                <Image Grid.Row="0" Source="bell_logo" HorizontalOptions="Center" Scale=".55" />
+                
+                <!-- Footer buttons -->
+                <Button class="themeButtons" Grid.Row="2" Text="LOG IN"  Command="{Binding LoginCommand}" Margin="20, 10, 20, 0" />
+                <Button class="themeButtons" Grid.Row="3" Text="SIGN UP"  Command="{Binding SignUpCommand}" Margin="20, 10, 20, 20" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

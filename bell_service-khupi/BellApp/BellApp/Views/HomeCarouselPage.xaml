@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewmodels="clr-namespace:BellApp.ViewModels"
+             x:Class="BellApp.Views.HomeCarouselPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:CarouselViewModel />
+   </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#ffffff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+
+        <Image  Margin="10" Source="bell_logo" VerticalOptions="Start" Scale="0.8" />
+       
+        <CarouselView ItemsSource="{Binding Carousels}"
+                      IndicatorView="indicatorView">
+            
+            <CarouselView.ItemTemplate>
+                
+                <DataTemplate>
+                    
+                    <StackLayout>
+                      
+                        <Frame HasShadow="True"
+                               BorderColor="White"
+                               CornerRadius="1"
+                               Margin="0"
+                               HeightRequest="{Binding Width}"
+                               HorizontalOptions="Center"
+                               IsClippedToBounds="true" Padding="0"
+                               VerticalOptions="CenterAndExpand">
+                            <Grid x:Name="gridLayout" BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="0" VerticalOptions="Center">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition  Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding bell_risk}" BackgroundColor="Transparent"
+                                           Command="{Binding RiskAssessmentCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+
+                                            <Label Grid.Row="0" CharacterSpacing="0"   FlexLayout.Basis="150" WidthRequest="300" LineBreakMode="WordWrap"  Grid.Column="1"  HorizontalTextAlignment="Center"  Text="{Binding bell_riskName}" FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                              HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding bell_installation}" BackgroundColor="Transparent"
+                                           Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+                                                <Label Grid.Row="0"  LineBreakMode="WordWrap" Grid.Column="1"  HorizontalTextAlignment="Center" Text="{Binding bell_installationName} " FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                         HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding Bell_Service}" BackgroundColor="Transparent"
+                                           Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+                                                <Label Grid.Row="0"  LineBreakMode="WordWrap" Grid.Column="1"  HorizontalTextAlignment="Center" Text="{Binding Bell_ServiceName} " FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                         HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding bell_MCA}" BackgroundColor="Transparent"
+                                           Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+                                                <Label Grid.Row="0"  LineBreakMode="WordWrap" Grid.Column="1"  HorizontalTextAlignment="Center" Text="{Binding bell_MCAName} " FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                         HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding bell_fir}" BackgroundColor="Transparent"
+                                           Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+                                                <Label Grid.Row="0"  LineBreakMode="WordWrap" Grid.Column="1"  HorizontalTextAlignment="Center" Text="{Binding bell_firName}" FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                         HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center">
+                                                <ImageButton Source="{Binding bell_parts}" BackgroundColor="Transparent"
+                                           Command="{Binding InstallCommand}" Aspect="AspectFit" HeightRequest="80" Margin="10" />
+                                                <Label Grid.Row="0"  LineBreakMode="WordWrap" Grid.Column="1"  HorizontalTextAlignment="Center" Text="{Binding bell_partsName} " FontSize="Medium" Margin="0, -10, 0, 0" TextColor="Black"  
+                                         HorizontalOptions="Center" FontAttributes="Bold"  />
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </StackLayout>
+                                </Grid>
+                        
+                        </Frame>
+                        
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indicatorView"
+                       BackgroundColor="#ffffff"
+                       IndicatorsShape="Circle"
+                       IndicatorColor="LightGray"
+                       Scale="2"
+                       SelectedIndicatorColor="#FCB942"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20" />
+    </StackLayout>
+    
+</ContentPage>
