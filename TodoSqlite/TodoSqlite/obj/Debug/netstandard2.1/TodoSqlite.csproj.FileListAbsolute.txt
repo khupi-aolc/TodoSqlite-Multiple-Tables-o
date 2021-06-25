@@ -1,0 +1,14 @@
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.1\TodoSqlite.deps.json
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.1\TodoSqlite.dll
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.1\TodoSqlite.pdb
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.csprojAssemblyReference.cache
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.AssemblyInfoInputs.cache
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.AssemblyInfo.cs
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.csproj.CoreCompileInputs.cache
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.dll
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\TodoSqlite.pdb
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\App.xaml.g.cs
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\Views\Templates\StepItemTemplate.xaml.g.cs
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\Views\TodoItemView.xaml.g.cs
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\Views\TodoListView.xaml.g.cs
+C:\workspace\Library\xamarin\TodoSqlite Multiple Tables\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.1\XamlC.stamp
